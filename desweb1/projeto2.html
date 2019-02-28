@@ -4,16 +4,18 @@
     <head> 
         <title>Lista de tarefas</title>
         <meta charset="utf-8">
+        <script type=“text/javascript” src=“cod.js”>
+        </script> 
     </head>
     <body>
         <div id="teste">
             <p id="at1"> <input type="checkbox">Fazer tarefas <button type="button" onclick="rmElement('at1')">X</button><br></p>
         
         
-            <p id="at2"> <input type="checkbox">Organizar css <button type="button" onclick="rmElement('at2')" >X</button><br></p>
+            <p id="at2"> <input type="checkbox" onclick="strike('at2')"><span id="sat2">Organizar css </span><button type="button" onclick="rmElement('at2')" >X</button><br></p>
         
         </div>
-        Adicionar tarefa: <form method="get"><input type="text" id="meu-input"/><input type="submit" id="meu-submit" value = "Enviar" onclick="addFile()"/></form><br>
+        Adicionar tarefa: <form method="get"><input type="text" id="meu-input"/><input type="submit" id="meu-submit" value = "Adicionar" onclick="addFile()"/></form><br>
         <a href="index.html">Voltar</a>
             
         
@@ -23,6 +25,11 @@
             function rmElement(element) { 
                 document.getElementById(element).innerHTML = '<br>';
             }
+            function strike(element){
+                var text = "<strike>"+document.getTextById('s'+element)+"</strike>";
+                alert(text);
+                document.getElementById("s"+element).innerHTML =text ;
+            }
             function addFile() {
                fileId++;
                var campo = document.getElementById('meu-input').value;
@@ -30,6 +37,7 @@
 
                document.getElementById("teste").innerHTML += texto;
                 e.preventDefault();
+                return false;
             }
         </script>
     </body>
