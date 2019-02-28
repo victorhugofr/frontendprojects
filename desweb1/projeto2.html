@@ -7,40 +7,33 @@
     </head>
     <body>
         <div id="teste">
-        <p id="at1"> <input type="checkbox">Fazer tarefas <button type="button" onclick="rmElement('at1')" id="bx1">X</button><br></p>
+            <p id="at1"> <input type="checkbox">Fazer tarefas <button type="button" onclick="rmElement('at1')">X</button><br></p>
         
         
-        <p id="at2"> <input type="checkbox" id="at2">Organizar css <button type="button" onclick="rmElement('at2')" >X</button><br></p>
+            <p id="at2"> <input type="checkbox">Organizar css <button type="button" onclick="rmElement('at2')" >X</button><br></p>
         
         </div>
-        Adicionar tarefa: <form method="get"><input type="text" id="meu-input"/><input type="submit" id="meu-submit" value = "Enviar"/></form><br>
-        <a href="ex1web1.html">Voltar</a>
+        Adicionar tarefa: <form method="get"><input type="text" id="meu-input"/><input type="submit" id="meu-submit" value = "Enviar" onclick="addFile()"/></form><br>
+        <a href="index.html">Voltar</a>
             
         
         
         <script>
-            var form = document.getElementById('p1');
-            var campo = document.getElementById('meu-input');
             var fileId = 2;
             function rmElement(element) { 
-                document.getElementById(element).innerHTML = ' ';
+                document.getElementById(element).innerHTML = '<br>';
             }
-            function addFile(texto){
-                    fileId++; // increment fileId to get a unique ID for the new element
-                var html = "<p id='at"+fileId+"'> <input type='checkbox'>"+texto+" <button type='button' onclick='rmElement('at"+fileId+")'>X</button><br></p>'
-                document.getElementById("teste").innerHTML += html;
-              //  addElement('files', 'p', 'file-' + fileId, html);
-            }
-//            form.addEventListener('submit', function(e) {
-//                alert(campo.value);
-//                addFile(campo.value);
-//                e.preventDefault();
-//            });
-            document.getElementById("meu-submit").onclick = function(e) {
-                addFile(document.getElementById("meu-input").value);
-                alert(document.getElementById("meu-input").value);
-               // e.preventDefault();
+            function addFile() {
+               fileId++;
+               var campo = document.getElementById('meu-input').value;
+               var texto = "<p id='at"+fileId+"'> <input type='checkbox'>"+campo+" <button type='button' onclick='rmElement('at"+fileId+")'>X</button><br></p>'";
+
+               document.getElementById("teste").innerHTML += texto;
+                e.preventDefault();
             }
         </script>
     </body>
+  
 </html>
+
+ 
